@@ -1,0 +1,125 @@
+<style type="text/css">
+    #$ {
+        ID;
+    }
+
+    {
+        height: 20px;
+        padding-left: 30px;
+    }
+</style>
+
+<article class="nexus-widget">
+    <div id="loading"></div>
+    <header>
+        <h2>Direct Contact</h2>
+    </header>
+    <section>
+        <div class="nexus-feed-new-message-form">
+            <h4>Post a new message:</h4>
+            <table>
+                <tr>
+                    <td>To:</td>
+                    <td>
+                        <div class="nexus-dropdown" data-selected-key="0" id="nexus-dropdown-direct-contact">
+                            <div class="nexus-dropdown-selected-value" name="nexus-direct-contact-selected-target" id="nexus-dropdown-direct-contact-user-name"></div>
+                            <div class="nexus-dropdown-button"><span class="nexus-icon-dropdown-arrow"></span></div>
+                            <div class="nexus-dropdown-list">
+                                <li data-key="0">--- select target ---</li>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td>
+                        <div class="nexus-feed-new-message-form-input">
+                            <input type="text" id="txtdcMessage" onkeypress="CreatePost(this,event)" placeholder="What's on your mind?" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <a href="#" class="nexus-button" onclick="CreatePost(this,event)">Post message</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section>
+        <div id="nexus-feed" class="nexus-feed"></div>
+        <a href="#" class="nexus-button-white" id="nexus-direct-contact-blog-show-more-button" onclick="showMore()">Show more...</a>
+    </section>
+</article>
+
+
+<script id="contactTemplate" type="text/html">
+    <ul>
+        <li>
+            <figure>
+                <a href="#">
+                    <img src=${nexus.admintoolapi}user/${UserID}/picture />
+                </a>
+            </figure>
+
+            <div>
+
+                <h4>${PostAuthor}</h4>
+                <div id="${ID}" class="Nexclose" onclick="OpenInformationDialog(${ID}, this)"></div>
+
+                ${Post}
+                <small><span>${FriendlyTime}</span></small>
+                <!-- here is a nested <ul> for replies to the above topic -->
+
+                <ul>
+                    <a href="#" class="directcontactanchor" id="nexus-direct-contact-blog-more-replies-button-${ID}" data-replies-loaded="3" onclick="javascript:loadMoreReplies(${ID}, this)"><b>Show older replies...</b></a>
+                    {{each tempReplies}}
+                    <li id="morerepliesTemplate">
+                        <figure>
+                            <a href="#">
+                                <img src=${nexus.admintoolapi}user/${UserID}/picture alt="Image Alternate Description" title="Image Title">
+                            </a>
+                        </figure>
+                        <div>
+                            <h4>${$value.UserName}</h4>
+                            <div id="${ID}" class="Nexclose" onclick="OpenInformationDialog(${ID}, this)"></div>
+                            <br>
+                            ${$value.Message}
+                            <small><span>${GetTime($value.Timestamp)}</span></small>
+                        </div>
+
+                    </li>
+                    {{/each}}
+
+                    <div id=${ID} class="nexus-feed"></div>
+
+
+                    <li>
+                        <div>
+                            <input type="text" placeholder="Add a reply" id="${ID}" source="${Source}" onkeypress="RepyToPost(this,event)" destination="${destination}" value />
+                            <span href="#" id="${ID}" name="sendchat" source="${Source}" class="nexus-icon-paper-plane nexus-gray nexus-xxl" onclick="RepyToPostOnclick(this,event)" destination="${destination}"></span>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </li>
+    </ul>
+</script>
+
+<div id="wait" class="directcontactloading"><p><img src='/_layouts/15/Nexus/NexusImages/spin.gif' width="30" height="30" /></p><p>Please wait...</p></div>
+
+<div id="ConfirmPopup" style="display:none;">
+    <div id="messageDiv" style="height:100px; padding-top:10px;padding-left:10px;padding-right:10px; font-weight:bold;">
+        <label id="lblConfirmationMessage"> </label>
+    </div>
+
+    <div id="buttonDiv" style="float:right;padding-right:5px;">
+        <input type="button" style="width:75px;" value="Yes" onclick="SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.Yes, 'Yes'); return false;" />
+        <input type="button" style="width:75px;" value="Cancel" onclick="SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.cancel, 'Cancel'); return false;" />
+    </div>
+</div>
+
+<script type="text/javascript" src="/_layouts/15/SP.dateTimeUtil.debug.js"></script>
+<script src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
