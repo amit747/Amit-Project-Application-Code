@@ -1,0 +1,423 @@
+﻿<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title>Project_Status_Item</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+    <mso:ManagedPropertyMapping msdt:dt="string">'Picture URL'{Picture URL}:'PublishingImage;PictureURL;PictureThumbnailURL','Link URL'{Link URL}:'Path','Line 1'{Line 1}:'MDTSiteInfoTitle','Line 2'{Line 2}:'MDTSiteInfoDescription','Line 3'{Line 3}:'MDTSiteInfoProjectStart','Line 4'{Line 4}:'MDTSiteInfoProjectEnd','Line 5'{Line 5}:'MDTSiteInfoProjectStatus','Line 6'{Line 6}:'MDTSiteInfoProjectShowInfo','SecondaryFileExtension','ContentTypeId'</mso:ManagedPropertyMapping>
+    <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a small thumbnail icon next to a hyperlink of the item title, with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://extranet-qa.mandieselturbo.com/Content/ProjectSiteInfo03/_catalogs/masterpage/Display Templates/Content Web Parts/Item_projectstatus_item.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+	
+	
+	
+  
+
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+           
+    <div id="Three Lines">
+        <!--#_
+		
+		// window.initProjectCharts method is defined in nexus.js of branding package
+	
+	AddPostRenderCallback(ctx, function(){
+       window.initProjectCharts();
+   });
+	
+	 
+
+        // Helper method to get difference between two dates(in number of days)
+         var getDiffDates = function (startDate, endDate)
+         {
+             var date1 = new Date(startDate),
+                    date2 = new Date(endDate);
+             if (!date1 || !date2) {
+                if (startDate.indexOf('T') != -1)
+                     date1 = new Date (startDate.split('T')[0] );
+                 if (endDate.indexOf('T') != -1)
+                     date2 =  new Date( endDate.split('T')[0] );
+             }
+
+             var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+             var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+             return diffDays;
+         }
+
+        var percentageCompletion = Math.round(100 * (getDiffDates(ctx.CurrentItem.MDTSiteInfoProjectStart, new Date()) / getDiffDates(ctx.CurrentItem.MDTSiteInfoProjectStart, ctx.CurrentItem.MDTSiteInfoProjectEnd)));
+		
+		      
+		
+
+           
+   
+       
+ 
+        var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_12lines_");
+
+        var linkURL = $getItemValue(ctx, "Link URL");
+        linkURL.overrideValueRenderer($urlHtmlEncode);
+        var iconURL = Srch.ContentBySearch.getIconSourceFromItem(ctx.CurrentItem);
+
+        var line1 = !!$getItemValue(ctx, "Line 1").value ? $getItemValue(ctx, "Line 1"): $getItemValue(ctx, "Line 7");
+        var line2 = $getItemValue(ctx, "Line 2");
+        var line3 = percentageCompletion > 100 ? 100 : percentageCompletion;
+        var line4 = new Date() > new Date(ctx.CurrentItem.MDTSiteInfoProjectEnd) ? 0 : getDiffDates(new Date(), ctx.CurrentItem.MDTSiteInfoProjectEnd)
+        var line5 = $getItemValue(ctx, "Line 5");
+        var line6 = $getItemValue(ctx, "Line 6");
+        var line7 = $getItemValue(ctx, "Line 7");
+        var line8 = $getItemValue(ctx, "Line 8");
+        var line9 = $getItemValue(ctx, "Line 9");
+        var line10 = $getItemValue(ctx, "Line 10");
+        var line11 = $getItemValue(ctx, "Line 11");
+        var line12 = $getItemValue(ctx, "Line 12");
+        line1.overrideValueRenderer($contentLineText);
+        line2.overrideValueRenderer($contentLineText);
+        //line3.overrideValueRenderer($contentLineText);
+        //line4.overrideValueRenderer($contentLineText);
+        line5.overrideValueRenderer($contentLineText);
+        line6.overrideValueRenderer($contentLineText);
+        line7.overrideValueRenderer($contentLineText);
+        line8.overrideValueRenderer($contentLineText);
+        line9.overrideValueRenderer($contentLineText);
+        line10.overrideValueRenderer($contentLineText);
+        line11.overrideValueRenderer($contentLineText);
+        line12.overrideValueRenderer($contentLineText);
+
+        var containerId = encodedId + "container";
+        var pictureLinkId = encodedId + "pictureLink";
+        var pictureId = encodedId + "picture";
+        var dataContainerId = encodedId + "dataContainer";
+        var line1LinkId = encodedId + "line1Link";
+        var line1Id = encodedId + "line1";
+        var line2Id = encodedId + "line2";
+        var line3Id = encodedId + "line3";
+        var line4Id = encodedId + "line4";
+        var line5Id = encodedId + "line5";
+        var line6Id = encodedId + "line6";
+        var line7Id = encodedId + "line7";
+        var line8Id = encodedId + "line8";
+        var line9Id = encodedId + "line9";
+        var line10Id = encodedId + "line10";
+        var line11Id = encodedId + "line11";
+        var line12Id = encodedId + "line12";
+
+          
+        _#-->
+        <!--#_
+        if ( ctx.CurrentItem.MDTSiteInfoProjectStatus == "Green")
+        {
+        _#-->
+
+
+
+        <article class="nexus-widget-frameless">
+            <header>
+                <h1>Project: <span class="nexus-dark-gray">_#= line1 =#_</span></h1>
+            </header>
+            <section class="nexus-no-border">
+                <div class="row">
+                    <div class="col-md-6 col-lg-8">
+                        <p>
+                            _#= line2 =#_
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+
+                        <!--#_
+                            if ( ctx.CurrentItem.MDTSiteInfoProjectShowInfo == "True")
+                            {
+
+                                if (ctx.CurrentItem.MDTSiteInfoProjectStart
+                                    && ctx.CurrentItem.MDTSiteInfoProjectEnd
+                                    && ctx.CurrentItem.MDTSiteInfoProjectStatus)
+                                {
+                            _#-->
+
+
+                        <div class="nexus-project-page-charts">
+
+                            <div class="nexus-left-media">
+                                <figure>
+                                    <div class="nexus-donut-chart" id="chart1" data-percentage="_#= line3 =#_">
+
+
+                                        <div class="circles-wrp" style="position: relative; display: inline-block;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                                <path fill="transparent" stroke="#e3e3e3" stroke-width="20" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#fff" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#313d4a" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 22.39351154428422 64.29015364831493 " />
+                                            </svg>
+                                            <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 28px; height: 80px; line-height: 80px;">
+
+
+                                            </div>&#160;
+                                        </div>&#160;
+                                    </div>
+                                </figure>
+                                <div>
+                                    _#= line3 =#_% finished
+                                    <br />
+                                    <span class="nexus-light-gray">_#= line4 =#_ days remains</span>
+                                </div>
+                            </div>
+                            <div class="nexus-left-media">
+                                <figure>
+                                    <div class="nexus-donut-chart nexus-donut-chart-green" id="chart2" data-percentage="_#= line3 =#_">
+
+
+
+                                        <div class="circles-wrp" style="position: relative; display: inline-block;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                                <path fill="transparent" stroke="#7e9e00" stroke-width="20" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#91b900" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#91b900" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 " />
+                                            </svg>
+                                            <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 28px; height: 80px; line-height: 80px;">
+
+
+
+                                            </div>&#160;
+                                        </div>&#160;
+                                    </div>
+                                </figure>
+                                <div>
+                                    Status _#= line5 =#_
+                                    <br />
+                                    <span class="nexus-light-gray"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--#_
+                        }
+
+                            }
+                        _#-->
+                    </div>
+                </div>
+            </section>
+        </article>
+
+
+
+        <!--#_
+            }
+            _#-->
+        <!--#_
+                 if ( ctx.CurrentItem.MDTSiteInfoProjectStatus == "Red")
+                 {
+                 _#-->
+
+
+
+        <article class="nexus-widget-frameless">
+            <header>
+                <h1>Project: <span class="nexus-dark-gray">_#= line1 =#_</span></h1>
+            </header>
+            <section class="nexus-no-border">
+                <div class="row">
+                    <div class="col-md-6 col-lg-8">
+                        <p>
+                            _#= line2 =#_
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+
+                        <!--#_
+                            if ( ctx.CurrentItem.MDTSiteInfoProjectShowInfo == "True")
+                            {
+                                 if (ctx.CurrentItem.MDTSiteInfoProjectStart
+                                    && ctx.CurrentItem.MDTSiteInfoProjectEnd
+                                    && ctx.CurrentItem.MDTSiteInfoProjectStatus)
+                                {
+                            _#-->
+                        <div class="nexus-project-page-charts">
+                            <div class="nexus-left-media">
+                                <figure>
+                                    <div class="nexus-donut-chart" id="chart1" data-percentage="_#= line3 =#_">
+                                        <div class="circles-wrp" style="position: relative; display: inline-block;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                                <path fill="transparent" stroke="#e3e3e3" stroke-width="20" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#fff" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#313d4a" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 22.39351154428422 64.29015364831493 " />
+                                            </svg>
+                                            <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 28px; height: 80px; line-height: 80px;">
+                                            </div>&#160;
+                                        </div>&#160;
+                                    </div>
+                                </figure>
+                                <div>
+                                    _#= line3 =#_% finished
+                                    <br />
+                                    <span class="nexus-light-gray">_#= line4 =#_ days remains</span>
+                                </div>
+                            </div>
+                            <div class="nexus-left-media">
+                                <figure>
+                                    <div class="nexus-donut-chart nexus-donut-chart-red" id="chart2" data-percentage="_#= line3 =#_">
+                                        <div class="circles-wrp" style="position: relative; display: inline-block;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                                <path fill="transparent" stroke="#7e9e00" stroke-width="20" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#91b900" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#91b900" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 " />
+                                            </svg>
+                                            <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 28px; height: 80px; line-height: 80px;">
+                                            </div>&#160;
+                                        </div>&#160;
+                                    </div>
+                                </figure>
+                                <div>
+                                    Status _#= line5 =#_
+                                    <br />
+                                    <span class="nexus-light-gray"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--#_
+                        }
+                         }
+                        _#-->
+                    </div>
+                </div>
+            </section>
+        </article>
+
+
+
+        <!--#_
+            }
+            _#-->
+        <!--#_
+                   if ( ctx.CurrentItem.MDTSiteInfoProjectStatus == "Yellow")
+                   {
+                   _#-->
+
+
+
+        <article class="nexus-widget-frameless">
+            <header>
+                <h1>Project: <span class="nexus-dark-gray">_#= line1 =#_</span></h1>
+            </header>
+            <section class="nexus-no-border">
+                <div class="row">
+                    <div class="col-md-6 col-lg-8">
+                        <p>
+                            _#= line2 =#_
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+
+                        <!--#_
+                           if ( ctx.CurrentItem.MDTSiteInfoProjectShowInfo == "True")
+                           { 
+
+                         if (ctx.CurrentItem.MDTSiteInfoProjectStart
+                                    && ctx.CurrentItem.MDTSiteInfoProjectEnd
+                                    && ctx.CurrentItem.MDTSiteInfoProjectStatus)
+                                {
+                           _#-->
+                        <div class="nexus-project-page-charts">
+                            <div class="nexus-left-media">
+                                <figure>
+                                    <div class="nexus-donut-chart" id="chart1" data-percentage="_#= line3 =#_">
+                                        <div class="circles-wrp" style="position: relative; display: inline-block;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                                <path fill="transparent" stroke="#e3e3e3" stroke-width="20" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#fff" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#313d4a" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 22.39351154428422 64.29015364831493 " />
+                                            </svg>
+                                            <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 28px; height: 80px; line-height: 80px;">
+                                            </div>&#160;
+                                        </div>&#160;
+                                    </div>
+                                </figure>
+                                <div>
+                                    _#= line3 =#_% finished
+                                    <br />
+                                    <span class="nexus-light-gray">_#= line4 =#_ days remains</span>
+                                </div>
+                            </div>
+                            <div class="nexus-left-media">
+                                <figure>
+                                    <div class="nexus-donut-chart nexus-donut-chart-yellow" id="chart2" data-percentage="_#= line3 =#_">
+                                        <div class="circles-wrp" style="position: relative; display: inline-block;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                                                <path fill="transparent" stroke="#7e9e00" stroke-width="20" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#91b900" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 Z" />
+                                                <path fill="transparent" stroke="#91b900" stroke-width="18" d="M 39.99388980388915 10.000000622241615 A 30 30 0 1 1 39.95833060185785 10.000028938992983 " />
+                                            </svg>
+                                            <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 28px; height: 80px; line-height: 80px;">
+                                            </div>&#160;
+                                        </div>&#160;
+                                    </div>
+                                </figure>
+                                <div>
+                                    Status _#= line5 =#_
+                                    <br />
+                                    <span class="nexus-light-gray"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--#_
+                        }
+                            }
+                        _#-->
+                    </div>
+                </div>
+            </section>
+        </article>
+
+
+
+        <!--#_
+            }
+            _#-->
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+</html>
+

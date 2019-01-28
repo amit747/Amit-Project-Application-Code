@@ -1,0 +1,244 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>Man Two lines Narrow Upload</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:ManagedPropertyMapping msdt:dt="string">'Link URL'{Link URL}:'Path','Line 1'{Line 1}:'Title','Line 2'{Line 2}:'','FileType':'FileType','FileExtension':'0','SecondaryFileExtension','ListItemID':'ListItemID','ListID':'ListID','Write':'Write','EditorOWSUSER':'EditorOWSUSER','LastModifiedTime':'LastModifiedTime','ModifiedBy':'ModifiedBy','SPSiteURL':'SPSiteURL','config_headerValue'{NavigationUrl}:'20','setting_Value1'{Setting Description 1}:'12'</mso:ManagedPropertyMapping>
+<mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a small thumbnail icon next to a hyperlink of the item title, with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">http://nexus-tst.mdt-ext-test.biz/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/MAN_Item_TwoLines_Narrow.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+
+
+
+    </script>
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+
+    <div class="row">
+        <!--#_
+           var siteUrl = ctx.CurrentItem.SPSiteURL;
+            var listID = $getItemValue(ctx, "ListID");
+            var path = ctx.CurrentItem.SPSiteURL + '/' + ctx.CurrentItem.Title;
+
+             // function to open a pop-up where user can upload files
+            window.openUploadPopup = function(element)
+            {
+                var $element = $(element);
+                var listID = $element.attr('data-listid');
+                var siteUrl = $element.attr('data-siteurl');
+                 var path = $element.attr('data-path');
+
+                var uploadLocation = siteUrl + "/_layouts/15/Upload.aspx?List=" + listID + "&RootFolder=" + path + "&IsDlg=1"; 
+                var options = {
+                  autoSize: true,
+                  url: uploadLocation,
+                  title: "Upload a document",
+                  dialogReturnValueCallback: CloseCallback
+                };
+                SP.UI.ModalDialog.showModalDialog(options);
+        
+            };
+            // Dialog callback
+            function CloseCallback(result, target) {
+                if (result == SP.UI.DialogResult.OK) {
+                    nexus.showDialog('Alert', 'File uploaded successfully !');
+                }
+                if (result == SP.UI.DialogResult.cancel) {
+                    nexus.showDialog('Alert', 'Something went wrong, file could not be uploaded !');
+                }
+            }
+        var id = ctx.ClientControl.get_nextUniqueId();
+        var itemId = id + Srch.U.Ids.item;
+        var hoverId = id + Srch.U.Ids.hover;
+        var hoverUrl = "~sitecollection/_catalogs/masterpage/Display Templates/Content Web Parts/Item_ContosoDocs_HoverPanel.js";
+        $setResultItem(itemId, ctx.CurrentItem);
+        ctx.currentItem_ShowHoverPanelCallback = Srch.U.getShowHoverPanelCallback(itemId, hoverId, hoverUrl);
+        ctx.currentItem_HideHoverPanelCallback = Srch.U.getHideHoverPanelCallback();
+        var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_2lines_");
+
+        var linkURL = $getItemValue(ctx, "Link URL");
+        linkURL.overrideValueRenderer($urlHtmlEncode);
+        var iconURL = Srch.ContentBySearch.getIconSourceFromItem(ctx.CurrentItem);
+
+        var line1 = $getItemValue(ctx, "Line 1");
+        var line2 = $getItemValue(ctx, "Line 2");
+        line1.overrideValueRenderer($contentLineText);
+        line2.overrideValueRenderer($contentLineText);
+
+        var containerId = encodedId + "container";
+        var pictureLinkId = encodedId + "pictureLink";
+        var pictureId = encodedId + "picture";
+        var dataContainerId = encodedId + "dataContainer";
+        var line1LinkId = encodedId + "line1Link";
+        var line1Id = encodedId + "line1";
+        var line2Id = encodedId + "line2";
+
+        _#-->
+        <!--#_
+         var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_2lines_");
+
+
+
+
+         var linkURL = $getItemValue(ctx, "Link URL");
+         linkURL.overrideValueRenderer($urlHtmlEncode);
+         var iconURL = Srch.ContentBySearch.getIconSourceFromItem(ctx.CurrentItem);
+
+         var line1 = $getItemValue(ctx, "Line 1");
+         var line2 = $getItemValue(ctx, "Line 2");
+         var path = $getItemValue(ctx, "Path");
+         var LMDate = new Date($getItemValue(ctx, "Write"));
+         var LMDatep=LMDate.getUTCDate();
+         ctx.arpath.push(path.value);
+         if(LMDate.getUTCDate() < 10)
+         {
+             LMDatep = "0"+LMDate.getUTCDate();
+         }
+         var LastModified = LMDatep+" "+ctx.monthNames[LMDate.getUTCMonth()]+" "+LMDate.getUTCFullYear()+","+LMDate.getUTCHours()+":"+LMDate.getUTCMinutes();
+         line1.overrideValueRenderer($contentLineText);
+         line2.overrideValueRenderer($contentLineText);
+
+         //var download = ctx.CurrentItem.SPSiteURL+ "/_layouts/download.aspx?SourceURL="+path;
+          var download = ctx.CurrentItem.SPSiteURL+ "/_layouts/15/Upload.aspx?List=" + $getItemValue(ctx, "ListID") + "&RootFolder=" + ctx.CurrentItem.Path;
+             //http://dtdkcphas0935/sites/upload/_layouts/15/Upload.aspx?List={B544EDAE-1382-4BA5-A9E5-14D2816495B6}&RootFolder=/sites/upload/Shared Documents/Service Manual 1
+         
+         var containerId = encodedId + "container";
+         var pictureLinkId = encodedId + "pictureLink";
+         var pictureId = encodedId + "picture";
+         var dataContainerId = encodedId + "dataContainer";
+         var line1LinkId = encodedId + "line1Link";
+         var line1Id = encodedId + "line1";
+         var line2Id = encodedId + "line2";
+
+         var icon =$getItemValue(ctx, "FileType");
+         var fileType="";
+
+
+         if(icon.value === "pdf"){
+             fileType ="/_layouts/15/images/ic"+$getItemValue(ctx, "FileType")+".png";
+         }
+         else{
+         fileType ="/_layouts/15/images/ic"+$getItemValue(ctx, "FileType")+".gif";
+         }
+            fileType = "/_layouts/15/Nexus/NexusImages/Folder-icon.png";
+         //console.log("fpt"+fileType);
+                 
+
+         _#-->
+        <!--#_
+              var ID = ctx.CurrentItemIdx + 1;
+              var commentID = 'commentbox'+ ID;
+              var buttonID ='button'+ ID;
+              var commentarea ='divcomment'+ ID;
+              var currid = ctx.CurrentItem.ListItemID
+
+           
+              _#-->
+        <!--#_
+                                // Check if the web part should be hidden (when no results are retrieved)
+    if (ctx.ClientControl.get_shouldShowNoResultMessage()) {
+        var containerClass = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_hide");
+        AddPostRenderCallback(ctx, function() {debugger;
+            $("#showalert").hide();
+            $("[id^=divcomment]").hide();
+            // Check if page is in edit mode
+            var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode;
+            var wikiInEditMode = document.forms[MSOWebPartPageFormName]._wikiPageMode;
+            var inEdit = false;
+            if (typeof inDesignMode !== "undefined") {
+                inEdit = inDesignMode.value === "1" ? true : false;
+            }
+            if (typeof wikiInEditMode !== "undefined") {
+                inEdit = wikiInEditMode.value === "Edit" ? true : false;
+            }
+            // Hide the webpart when page is not in edit mode
+            if (!inEdit) {
+                var container = document.getElementsByClassName(containerClass);
+                if (container.length) {
+                    var elm = container[0];
+                    while ((elm = elm.parentElement) && !elm.classList.contains('s4-wpcell-plain'));
+                    if (typeof elm !== "undefined" && elm !== null) {
+                        elm.style.display = "none";
+                    }
+                }
+            }
+        });
+    _#-->
+        <div class="_#= containerClass =#_"></div>
+        <!--#_
+    }
+    _#-->
+
+        <tr class="">
+
+            <td class="nexus-icon-col">
+                <img src="_#= fileType =#_" />
+            </td>
+            <td>_#= line1 =#_</td>
+            <td class="nexus-icon-col nexus-xxl nexus-green">
+                <i class="fa fa-exclamation-circle"></i>
+            </td>
+            <!--<td class="nexus-icon-col">
+            <span id="container">
+                <span class="doc-item" id="_#= $htmlEncode(itemId) =#_" data-displaytemplate="ContosoDocs" onmouseover="_#= ctx.currentItem_ShowHoverPanelCallback =#_" onmouseout="_#= ctx.currentItem_HideHoverPanelCallback =#_">
+                <div id="_#= $htmlEncode(hoverId) =#_" class="ms-srch-hover-outerContainer"></div>
+                    <a href="#">
+                        <span class="nexus-icon-ellipsis" title="Open menu"></span>
+                    </a>
+                </span>
+            </span>
+            </td>!-->
+            <!--<td>_#= LastModified =#_</td>
+            <td class="nexus-icon-col">
+                <a href="#" onclick="openUploadPopup()">
+                    <i class="nexus-icon-download2">
+                    </i>
+                </a>
+            </td>!-->
+            <td class="nexus-icon-col">
+                <span style="background-image:url(/_layouts/15/Nexus/nexusImages/16_upload.png);width:18px;height:16px;display:block;cursor:pointer" title="Upload" data-path="_#= path =#_" data-siteurl="_#= siteUrl =#_" data-listid="_#= listID =#_" onclick="window.openUploadPopup(this);"></span>
+                <!--<a href="#" class="nexus-callout" data-callout-link2-caption="Upload" data-callout-link1-url="openUploadPopup()" data-callout-link2-caption="Open in New Window" data-callout-link2-url="_#= path =#_" data-callout-link2-target="_blank">
+
+                    <span class="nexus-icon-ellipsis" title="Open menu"></span>
+                </a>-->
+            </td>
+
+            <!--
+            <td class="nexus-icon-col">
+                <a href="_#= path =#_" target="_blank">
+                    <i class="nexus-icon-out"></i>
+                </a>
+            </td>!-->
+        </tr>
+
+    </div>
+</body>
+
+</html>

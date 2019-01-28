@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0232889-2381-4F4B-8231-4D42AE1CE4C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DT.GIIW.Nexus.ContentBySearchWP</RootNamespace>
+    <AssemblyName>DT.GIIW.Nexus.ContentBySearchWP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <TokenReplacementFileExtensions>svc</TokenReplacementFileExtensions>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DT.GIEW.SharePoint.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=255029b267d2da23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DT.GIEW.SharePoint.Utilities\v4.0_1.0.0.0__255029b267d2da23\DT.GIEW.SharePoint.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="DT.GIEW.SharePoint.Utilities.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=255029b267d2da23, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\DT.GIEW.SharePoint.Utilities.Interfaces\v4.0_1.0.0.0__255029b267d2da23\DT.GIEW.SharePoint.Utilities.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.office.server.search.contentprocessingenrichment, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.Office.Server.Search.ContentProcessingEnrichment\v4.0_15.0.0.0__71e9bce111e9429c\microsoft.office.server.search.contentprocessingenrichment.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Practices.ServiceLocation\1.0.0.0__31bf3856ad364e35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.SharePoint, Version=1.0.0.0, Culture=neutral, PublicKeyToken=06b5f10bd7972da5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Practices.SharePoint\1.0.0.0__06b5f10bd7972da5\Microsoft.Practices.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.SharePoint.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=ef4330804b3c4129, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Practices.SharePoint.Common\2.0.0.0__ef4330804b3c4129\Microsoft.Practices.SharePoint.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.Client.ServerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTCSWP\CustomToolPart_CSWP.cs" />
+    <Compile Include="DTCSWP\DTCSWP.cs" />
+    <Compile Include="ISAPI\DT.GIIW.Nexus.ContentBySearchWP\DirectContact.svc.cs">
+      <DependentUpon>DirectContact.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ISAPI\DT.GIIW.Nexus.ContentBySearchWP\IDirectContact.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DisplayTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{480548e9-c948-4a42-aed0-3c3f2fdc03f1}</SharePointProjectItemId>
+    </None>
+    <None Include="DTCSWP\DTCSWP.webpart" />
+    <None Include="DTCSWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a0c7068f-84b0-479c-804e-8562803904a6}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\SearchDisplayTemplates\SearchDisplayTemplates.feature">
+      <FeatureId>{a81181e7-1713-4d27-9d1b-8bf666713ad7}</FeatureId>
+    </None>
+    <None Include="Features\NexusGenericDisplayTemplates\NexusGenericDisplayTemplates.feature">
+      <FeatureId>{ce2870b7-ee24-41fb-90e4-f6dac4fc44f7}</FeatureId>
+    </None>
+    <None Include="Features\ContentBySearchWP Feature\ContentBySearchWP Feature.feature">
+      <FeatureId>{e27ba68c-95fb-4205-9ed0-ea46535c74ea}</FeatureId>
+    </None>
+    <None Include="MAN SearchDisplayTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9f334887-874b-4620-a9f5-6011eb3a12d3}</SharePointProjectItemId>
+    </None>
+    <None Include="GenericDisplayTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a124d5d0-2842-4f86-a37d-6291cae19b3e}</SharePointProjectItemId>
+    </None>
+    <None Include="ISAPI\DT.GIIW.Nexus.ContentBySearchWP\web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ISAPI\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f07fa865-a4d5-4501-a57f-2fd4dc0e9421}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{87c327d3-fb75-4ff5-afd2-8f3c9f0b96ae}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{9057ff22-ba57-4257-a5ff-c560f594306b}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Layouts\DT.GIIW.Nexus.ContentBySearchWP\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DisplayTemplates\Control_List_EC.js" />
+    <Content Include="DisplayTemplates\Control_List_MAN.js" />
+    <Content Include="DisplayTemplates\Control_List_MAN_Narrow.js" />
+    <Content Include="DisplayTemplates\Control_List_MAN_Narrow_Upload.js" />
+    <Content Include="DisplayTemplates\Control_Projectstatus_list_control.js" />
+    <Content Include="DisplayTemplates\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="DisplayTemplates\Item_projectstatus_item.js" />
+    <Content Include="DisplayTemplates\MAN_Item_TwoLines.js" />
+    <Content Include="DisplayTemplates\MAN_Item_TwoLines_Narrow.js" />
+    <Content Include="DisplayTemplates\MAN_Item_TwoLines_Narrow_Upload.js" />
+    <Content Include="DisplayTemplates\News_Archive_Main_Results_Item.js" />
+    <Content Include="DisplayTemplates\News_Archive_Main_Title_Control.js" />
+    <Content Include="DisplayTemplates\News_Archive_Refinement_Control.js" />
+    <Content Include="DisplayTemplates\News_Archive_Refinement_Date.js" />
+    <Content Include="DisplayTemplates\News_Home_Main_Item.js" />
+    <Content Include="DisplayTemplates\News_Home_Related_Article_Results_Item.js" />
+    <Content Include="DisplayTemplates\News_Home_Related_Article_Title_Control.js" />
+    <Content Include="DisplayTemplates\Sample.txt" />
+    <Content Include="DisplayTemplates\ServiceLetter_Control.js" />
+    <Content Include="DisplayTemplates\ServiceLetter_Item_Refine.js" />
+    <Content Include="DisplayTemplates_HTML\Control_List_EC.html" />
+    <Content Include="DisplayTemplates_HTML\Control_List_MAN_Narrow.html" />
+    <Content Include="DisplayTemplates_HTML\Control_List_MAN_Narrow_Upload.html" />
+    <Content Include="DisplayTemplates_HTML\Control_Projectstatus_list_control.html" />
+    <Content Include="DisplayTemplates_HTML\Item_projectstatus_item.html" />
+    <Content Include="DisplayTemplates_HTML\MAN_Item_TwoLines_Narrow.html" />
+    <Content Include="DisplayTemplates_HTML\MAN_Item_TwoLines_Narrow_Upload.html" />
+    <Content Include="DisplayTemplates_HTML\News_Archive_Main_Results_Item.html" />
+    <Content Include="DisplayTemplates_HTML\News_Archive_Main_Title_Control.html" />
+    <Content Include="DisplayTemplates_HTML\News_Archive_Refinement_Control.html" />
+    <Content Include="DisplayTemplates_HTML\News_Archive_Refinement_Date.html" />
+    <Content Include="DisplayTemplates_HTML\News_Home_Main_Item.html" />
+    <Content Include="DisplayTemplates_HTML\News_Home_Related_Article_Results_Item.html" />
+    <Content Include="DisplayTemplates_HTML\News_Home_Related_Article_Title_Control.html" />
+    <Content Include="DisplayTemplates_HTML\ServiceLetter_Control.html" />
+    <Content Include="DisplayTemplates_HTML\ServiceLetter_Item_Refine.html" />
+    <Content Include="DTCSWP\Elements.xml" />
+    <Content Include="Elements.xml" />
+    <Content Include="Features\SearchDisplayTemplates\SearchDisplayTemplates.Template.xml">
+      <DependentUpon>SearchDisplayTemplates.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\NexusGenericDisplayTemplates\NexusGenericDisplayTemplates.Template.xml">
+      <DependentUpon>NexusGenericDisplayTemplates.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\ContentBySearchWP Feature\ContentBySearchWP Feature.Template.xml">
+      <DependentUpon>ContentBySearchWP Feature.feature</DependentUpon>
+    </Content>
+    <Content Include="MAN SearchDisplayTemplates\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="GenericDisplayTemplates\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="GenericDisplayTemplates\MAN_control_document_narrow.js" />
+    <Content Include="GenericDisplayTemplates\MAN_control_document_wide.js" />
+    <Content Include="GenericDisplayTemplates\MAN_control_generic_table.js" />
+    <Content Include="GenericDisplayTemplates\MAN_item_document_narrow.js" />
+    <Content Include="GenericDisplayTemplates\MAN_item_document_wide.js" />
+    <Content Include="GenericDisplayTemplates\MAN_item_generic_table.js" />
+    <Content Include="ISAPI\DT.GIIW.Nexus.ContentBySearchWP\DirectContact.svc" />
+    <Content Include="MAN SearchDisplayTemplates\Item_Project_Sites.js" />
+    <Content Include="MAN SearchDisplayTemplates_HTML\Item_Project_Sites.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

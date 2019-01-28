@@ -1,0 +1,234 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title>Control_List_MAN_Narrow_Upload</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+    <mso:MasterPageDescription msdt:dt="string">This is the default Control Display Template that will list the items. It does not allow the user to page through items.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106601</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">http://nexus-tst.mdt-ext-test.biz/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/Control_List_MAN_Narrow.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+
+
+    <style type="text/css">
+        #Control_List {
+            background-color: blue;
+        }
+    </style>
+
+    <script>
+    </script>
+
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+
+
+
+    </script>
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+
+
+
+    <div id="Control_List" style="">
+
+        
+        <!--#_
+
+                ctx.OnPostRender = [];
+                    ctx.arpath =[];
+                    ctx.monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+                     ctx.OnPostRender.push(function updateTable(rowlimit){
+                         var totalRows = ctx.DataProvider.get_totalRows();
+
+                                 var IsLessThenFive =totalRows < 5;
+                                 var rowsToRender =5 - totalRows;
+                                var searchRestSource = _spPageContextInfo.webAbsoluteUrl + '/_api/search/query?querytext=%27IsDocument:true%27';
+                                 //console.log(_spPageContextInfo.webAbsoluteUrl);
+                                 if(IsLessThenFive && parseInt(ctx.CurrentItemIdx+1) == totalRows)
+                                 {
+                                      $.ajax({
+                                             url: searchRestSource,
+                                             method: "GET",
+                                             headers: {
+                                                 "accept": "application/json; odata=verbose",
+                                             },
+                                             success: function (data) {
+                                             //debugger;
+                                                 if (data.d.query.PrimaryQueryResult.RelevantResults.RowCount > 0) {
+                                                             console.log(ctx.arpath);
+                                                             console.log(parseInt(ctx.CurrentItemIdx+1));
+                                                             console.log(totalRows);
+                                                             //searchLatestModified(rowsToRender);
+                                                             console.log(parseInt(ctx.CurrentItemIdx+1) == totalRows);
+                                                             var results = convertResults(data);
+                                                             //debugger;
+                                                             for(var i=0;i < results.length && rowsToRender !=0;i++)
+                                                        {
+                                                             var download = _spPageContextInfo.webAbsoluteUrl+"/_layouts/download.aspx?SourceURL="+results[i].OriginalPath;
+                                                             var path = results[i].OriginalPath;
+                                                             var LMDate = new Date(results[i].LastModifiedTime);
+                                                             var LMDatep=LMDate.getUTCDate();
+                                                             var LastModified =   LMDatep+" "+ctx.monthNames[LMDate.getUTCMonth()]+" "+LMDate.getUTCFullYear()+","+LMDate.getUTCHours()+":"+LMDate.getUTCMinutes();
+                                                             var fileType ="/_layouts/15/images/ic"+results[i].FileExtension+".png"
+                                                            fileType = "/_layouts/15/Nexus/NexusImages/Folder-icon.png";
+
+                                                            var table ='<tr><td></td> <td class="nexus-icon-col"> <img src="'+ fileType +'" /> </td> <td>'+ results[i].Title+' </td> <td class="nexus-icon-col nexus-xxl nexus-green"> <i class="fa fa-exclamation-circle"></i> </td> <td class="nexus-icon-col"> </td> <td>'+ LastModified +'</td> <td class="nexus-icon-col"> <a href="'+ path +'"> <i class="nexus-icon-out"></i> </a> </td> <td class="nexus-icon-col"> <a href="#"><i class="nexus-icon-chat"></i> </a> </td> <td class="nexus-icon-col"> <a href="'+ download +'"> <i class="nexus-icon-download2"> </i> </a> </td></tr>';
+                                                             if(ctx.arpath.indexOf(path) == -1)
+                                                             {
+                                                                $("#serviceLetterTable > tbody").append( table );
+                                                                rowsToRender=rowsToRender-1;
+                                                             }
+
+                                                   }
+
+
+
+                                                 } else {
+
+                                                 }
+
+                                             },
+                                             error: function (err) {
+                                                 nexus.log(jsclient.loglevel, err);
+                                             }
+                                     });
+
+                                 }
+                     });
+
+
+                _#-->
+
+
+        <div>
+            <article class="nexus-widget nexus-no-padding">
+                <header>
+                    <a target="_blank" href="/content/Manuals/Manuals" class="nexus-button">Go to upload area</a>
+                    <a target="_blank" href="/content/Manuals/Manuals">Go to upload area</a>
+
+
+
+
+                </header>
+                <section class="nexus-no-padding">
+                    <table class="nexus-table" id="serviceLetterTable">
+                        <thead>
+                            <tr>
+
+                                <th class="nexus-icon-col"><span class="nexus-icon-document"></span></th>
+                                <th>Name</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <!--#_
+                            if (!$isNull(ctx.ClientControl) &&
+                                !$isNull(ctx.ClientControl.shouldRenderControl) &&
+                                !ctx.ClientControl.shouldRenderControl())
+                            {
+                                return "";
+                            }
+                            ctx.ListDataJSONGroupsKey = "ResultTables";
+                            var $noResults = Srch.ContentBySearch.getControlTemplateEncodedNoResultsMessage(ctx.ClientControl);
+
+                            var noResultsClassName = "ms-srch-result-noResults";
+
+
+                            _#-->
+                            _#= ctx.RenderGroups(ctx) =#_
+                        </tbody>
+                    </table>
+                </section>
+                <!-- all callouts use the same content markup. place this underneath the links, inside the <article>. there are no data- attributes to change here (except for possibly the texts) -->
+                <!-- Note: this must be inside an <article> or else if will not be found -->
+                <div class="nexus-hidden">
+                    <div class="nexus-callout-content-container">
+                        <p class="nexus-callout-description"></p>
+                        <div class="nexus-comment-box">
+                            <div class="nexus-comment-box-icons">
+                                <a href="#" class="nexus-comment-box-save" title="Save comment"><span class="nexus-icon-save"></span></a>
+                                <a href="#" class="nexus-comment-box-delete" title="Delete comment"><span class="nexus-icon-trash"></span></a>
+                            </div>
+                            <p>
+                                <span>&nbsp;</span><span class="nexus-comment-box-feedback" data-caption-default="Your comments:" data-caption-saving="Saving comment..." data-caption-removed="Comment removed..."></span>
+                            </p>
+                            <textarea class="nexus-comment-box-form" data-item-id=""></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </article>
+            <!--#_
+            // Check if the web part should be hidden (when no results are retrieved)
+        if (ctx.ClientControl.get_shouldShowNoResultMessage()) {
+            var containerClass = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_hide");
+            AddPostRenderCallback(ctx, function() {debugger;
+                // Check if page is in edit mode
+                var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode;
+                var wikiInEditMode = document.forms[MSOWebPartPageFormName]._wikiPageMode;
+                var inEdit = false;
+                if (typeof inDesignMode !== "undefined") {
+                    inEdit = inDesignMode.value === "1" ? true : false;
+                }
+                if (typeof wikiInEditMode !== "undefined") {
+                    inEdit = wikiInEditMode.value === "Edit" ? true : false;
+                }
+                // Hide the webpart when page is not in edit mode
+                if (!inEdit) {
+                    var container = document.getElementsByClassName(containerClass);
+                    if (container.length) {
+                        var elm = container[0];
+                        while ((elm = elm.parentElement) && !elm.classList.contains('s4-wpcell-plain'));
+                        if (typeof elm !== "undefined" && elm !== null) {
+                            elm.style.display = "none";
+                        }
+                    }
+                }
+            });
+        _#-->
+        <div class="_#= containerClass =#_"></div>
+        <!--#_
+        }
+        _#-->
+
+             <!--#_
+            if (ctx.ClientControl.get_shouldShowNoResultMessage())
+            {
+            _#-->
+            <div class="_#= noResultsClassName =#_">_#= $noResults =#_</div>
+            <!--#_
+            }
+            _#-->
+        </div>
+    </div>
+</body>
+
+</html>
