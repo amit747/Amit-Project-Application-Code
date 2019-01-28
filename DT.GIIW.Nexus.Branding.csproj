@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4197201C-57F6-4379-8BA1-1B5B30A4930E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DT.GIIW.Nexus.Branding</RootNamespace>
+    <AssemblyName>DT.GIIW.Nexus.Branding</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\DT.GIIW.Nexus.Branding.MasterPage\DT.GIIW.Nexus.Branding.EventReceiver.cs">
+      <DependentUpon>DT.GIIW.Nexus.Branding.MasterPage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Admin\admin.css.map">
+      <DependentUpon>admin.css</DependentUpon>
+    </None>
+    <None Include="Admin\admin.less" />
+    <Content Include="Admin\kendo-ui.css" />
+    <None Include="Admin\kendo-ui.css.map">
+      <DependentUpon>kendo-ui.css</DependentUpon>
+    </None>
+    <None Include="Admin\Nexus\nexus.css.map">
+      <DependentUpon>nexus.css</DependentUpon>
+    </None>
+    <None Include="Admin\Nexus\nexus.js.bundle" />
+    <None Include="Admin\Nexus\nexus.less" />
+    <None Include="Admin\Nexus\nexus.min.js.map">
+      <DependentUpon>nexus.min.js</DependentUpon>
+    </None>
+    <None Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Bold.eot" />
+    <None Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Bold.ttf" />
+    <None Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Bold.woff" />
+    <None Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Regular.eot" />
+    <None Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Regular.ttf" />
+    <None Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Regular.woff" />
+    <None Include="Admin\Nexus\NexusFonts\NexusIcons.eot" />
+    <None Include="Admin\Nexus\NexusFonts\NexusIcons.ttf" />
+    <None Include="Admin\Nexus\NexusFonts\NexusIcons.woff" />
+    <None Include="Admin\Nexus\NexusJqUInPqSelect.css.bundle" />
+    <None Include="bundleconfig.json" />
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{141778f7-3f96-40d1-8500-03176783d37b}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\Nexus\nexus.css.map">
+      <DependentUpon>nexus.css</DependentUpon>
+    </None>
+    <None Include="Layouts\Nexus\nexus.js.bundle" />
+    <None Include="Layouts\Nexus\nexus.less" />
+    <None Include="Layouts\Nexus\nexus.min.js.map">
+      <DependentUpon>nexus.min.js</DependentUpon>
+    </None>
+    <None Include="Layouts\Nexus\NexusJqUInPqSelect.css.bundle">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Less\Bootstrap-master\.editorconfig" />
+    <None Include="Less\Bootstrap-master\.gitattributes" />
+    <None Include="Less\Bootstrap-master\.gitignore" />
+    <None Include="Less\Bootstrap-master\.travis.yml" />
+    <None Include="Less\Bootstrap-master\bower.json" />
+    <None Include="Less\Bootstrap-master\CNAME" />
+    <None Include="Less\Bootstrap-master\composer.json" />
+    <None Include="Less\Bootstrap-master\CONTRIBUTING.md" />
+    <None Include="Less\Bootstrap-master\dist\css\bootstrap-theme.css.map" />
+    <None Include="Less\Bootstrap-master\dist\css\bootstrap.css.map" />
+    <None Include="Less\Bootstrap-master\dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Less\Bootstrap-master\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Less\Bootstrap-master\dist\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Less\Bootstrap-master\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Less\Bootstrap-master\dist\js\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </None>
+    <None Include="Less\Bootstrap-master\docs\dist\css\bootstrap-theme.css.map" />
+    <None Include="Less\Bootstrap-master\docs\dist\css\bootstrap.css.map" />
+    <None Include="Less\Bootstrap-master\docs\dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Less\Bootstrap-master\docs\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Less\Bootstrap-master\docs\dist\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Less\Bootstrap-master\docs\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Less\Bootstrap-master\docs\dist\js\bootstrap.min.js.map">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </None>
+    <None Include="Less\Bootstrap-master\docs\LICENSE" />
+    <None Include="Less\Bootstrap-master\docs\_data\browser-bugs.yml" />
+    <None Include="Less\Bootstrap-master\docs\_data\core-team.yml" />
+    <None Include="Less\Bootstrap-master\docs\_data\glyphicons.yml" />
+    <None Include="Less\Bootstrap-master\docs\_data\sass-team.yml" />
+    <None Include="Less\Bootstrap-master\docs\_data\showcase.yml" />
+    <None Include="Less\Bootstrap-master\docs\_data\translations.yml" />
+    <None Include="Less\Bootstrap-master\docs\_jade\customizer-nav.jade" />
+    <None Include="Less\Bootstrap-master\docs\_jade\customizer-variables.jade" />
+    <None Include="Less\Bootstrap-master\docs\_plugins\bridge.rb" />
+    <None Include="Less\Bootstrap-master\docs\_plugins\bugify.rb" />
+    <None Include="Less\Bootstrap-master\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Less\Bootstrap-master\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Less\Bootstrap-master\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Less\Bootstrap-master\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Less\Bootstrap-master\grunt\.jshintrc" />
+    <None Include="Less\Bootstrap-master\grunt\configBridge.json" />
+    <None Include="Less\Bootstrap-master\grunt\sauce_browsers.yml" />
+    <None Include="Less\Bootstrap-master\js\.jscsrc" />
+    <None Include="Less\Bootstrap-master\js\.jshintrc" />
+    <None Include="Less\Bootstrap-master\js\tests\unit\.jshintrc" />
+    <None Include="Less\Bootstrap-master\less\.csscomb.json" />
+    <None Include="Less\Bootstrap-master\less\.csslintrc" />
+    <None Include="Less\Bootstrap-master\less\alerts.less" />
+    <None Include="Less\Bootstrap-master\less\badges.less" />
+    <None Include="Less\Bootstrap-master\less\bootstrap.less" />
+    <None Include="Less\Bootstrap-master\less\breadcrumbs.less" />
+    <None Include="Less\Bootstrap-master\less\button-groups.less" />
+    <None Include="Less\Bootstrap-master\less\buttons.less" />
+    <None Include="Less\Bootstrap-master\less\carousel.less" />
+    <None Include="Less\Bootstrap-master\less\close.less" />
+    <None Include="Less\Bootstrap-master\less\code.less" />
+    <None Include="Less\Bootstrap-master\less\component-animations.less" />
+    <None Include="Less\Bootstrap-master\less\dropdowns.less" />
+    <None Include="Less\Bootstrap-master\less\forms.less" />
+    <None Include="Less\Bootstrap-master\less\glyphicons.less" />
+    <None Include="Less\Bootstrap-master\less\grid.less" />
+    <None Include="Less\Bootstrap-master\less\input-groups.less" />
+    <None Include="Less\Bootstrap-master\less\jumbotron.less" />
+    <None Include="Less\Bootstrap-master\less\labels.less" />
+    <None Include="Less\Bootstrap-master\less\list-group.less" />
+    <None Include="Less\Bootstrap-master\less\media.less" />
+    <None Include="Less\Bootstrap-master\less\mixins.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\alerts.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\background-variant.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\border-radius.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\buttons.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\center-block.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\clearfix.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\forms.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\gradients.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\grid-framework.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\grid.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\hide-text.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\image.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\labels.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\list-group.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\nav-divider.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\nav-vertical-align.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\opacity.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\pagination.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\panels.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\progress-bar.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\reset-filter.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\resize.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\responsive-visibility.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\size.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\tab-focus.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\table-row.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\text-emphasis.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\text-overflow.less" />
+    <None Include="Less\Bootstrap-master\less\mixins\vendor-prefixes.less" />
+    <None Include="Less\Bootstrap-master\less\modals.less" />
+    <None Include="Less\Bootstrap-master\less\navbar.less" />
+    <None Include="Less\Bootstrap-master\less\navs.less" />
+    <None Include="Less\Bootstrap-master\less\normalize.less" />
+    <None Include="Less\Bootstrap-master\less\pager.less" />
+    <None Include="Less\Bootstrap-master\less\pagination.less" />
+    <None Include="Less\Bootstrap-master\less\panels.less" />
+    <None Include="Less\Bootstrap-master\less\popovers.less" />
+    <None Include="Less\Bootstrap-master\less\print.less" />
+    <None Include="Less\Bootstrap-master\less\progress-bars.less" />
+    <None Include="Less\Bootstrap-master\less\responsive-embed.less" />
+    <None Include="Less\Bootstrap-master\less\responsive-utilities.less" />
+    <None Include="Less\Bootstrap-master\less\scaffolding.less" />
+    <None Include="Less\Bootstrap-master\less\tables.less" />
+    <None Include="Less\Bootstrap-master\less\theme.less" />
+    <None Include="Less\Bootstrap-master\less\thumbnails.less" />
+    <None Include="Less\Bootstrap-master\less\tooltip.less" />
+    <None Include="Less\Bootstrap-master\less\type.less" />
+    <None Include="Less\Bootstrap-master\less\utilities.less" />
+    <None Include="Less\Bootstrap-master\less\variables.less" />
+    <None Include="Less\Bootstrap-master\less\wells.less" />
+    <None Include="Less\Bootstrap-master\LICENSE" />
+    <None Include="Less\Bootstrap-master\package.json" />
+    <None Include="Less\Bootstrap-master\README.md" />
+    <None Include="Less\Bootstrap-master\test-infra\npm-shrinkwrap.json" />
+    <None Include="Less\Bootstrap-master\test-infra\README.md" />
+    <None Include="Less\Bootstrap-master\test-infra\S3Cachefile.json" />
+    <None Include="Less\Bootstrap-master\test-infra\s3_cache.py" />
+    <None Include="Less\Bootstrap-master\test-infra\uncached-npm-install.sh" />
+    <None Include="Less\Bootstrap-master\_config.yml" />
+    <None Include="Features\DT.GIIW.Nexus.Branding.MasterPage\DT.GIIW.Nexus.Branding.MasterPage.feature">
+      <FeatureId>{cc06b568-ea46-4c23-a0cd-a13580199660}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Less\bootstrap-nexus-variables.css.map">
+      <DependentUpon>bootstrap-nexus-variables.css</DependentUpon>
+    </None>
+    <None Include="Less\bootstrap-nexus-variables.less" />
+    <None Include="Less\bootstrap-nexus.css.map">
+      <DependentUpon>bootstrap-nexus.css</DependentUpon>
+    </None>
+    <None Include="Less\bootstrap-nexus.less" />
+    <None Include="Less\infobar.css.map">
+      <DependentUpon>infobar.css</DependentUpon>
+    </None>
+    <None Include="Less\infobar.less" />
+    <None Include="Less\icons.css.map">
+      <DependentUpon>icons.css</DependentUpon>
+    </None>
+    <None Include="Less\icons.less" />
+    <None Include="Layouts\Nexus\NexusFonts\NexusIcons.eot" />
+    <None Include="Layouts\Nexus\NexusFonts\NexusIcons.ttf" />
+    <None Include="Layouts\Nexus\NexusFonts\NexusIcons.woff" />
+    <None Include="Less\jquery-ui.css.map">
+      <DependentUpon>jquery-ui.css</DependentUpon>
+    </None>
+    <None Include="Less\jquery-ui.less" />
+    <None Include="Less\sharepoint.css.map">
+      <DependentUpon>sharepoint.css</DependentUpon>
+    </None>
+    <None Include="Less\sharepoint.less" />
+    <None Include="Less\fonts.css.map">
+      <DependentUpon>fonts.css</DependentUpon>
+    </None>
+    <None Include="Less\fonts.less" />
+    <None Include="Less\forms.css.map">
+      <DependentUpon>forms.css</DependentUpon>
+    </None>
+    <None Include="Less\forms.less" />
+    <None Include="Less\toolbar.css.map">
+      <DependentUpon>toolbar.css</DependentUpon>
+    </None>
+    <None Include="Less\toolbar.less" />
+    <None Include="Less\style.css.map">
+      <DependentUpon>style.css</DependentUpon>
+    </None>
+    <None Include="Less\style.less" />
+    <None Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Bold.eot" />
+    <None Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Bold.ttf" />
+    <None Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Bold.woff" />
+    <None Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Regular.eot" />
+    <None Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Regular.ttf" />
+    <None Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Regular.woff" />
+    <None Include="Less\utility.css.map">
+      <DependentUpon>utility.css</DependentUpon>
+    </None>
+    <None Include="Less\utility.less" />
+    <None Include="Less\variables.css.map">
+      <DependentUpon>variables.css</DependentUpon>
+    </None>
+    <None Include="Less\variables.less" />
+    <None Include="Less\widgets.css.map">
+      <DependentUpon>widgets.css</DependentUpon>
+    </None>
+    <None Include="Less\widgets.less" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{16035055-cab5-4a7a-8df2-d818410365d0}</SharePointProjectItemId>
+    </None>
+    <None Include="MasterPage\NexusMain.master" />
+    <None Include="MasterPage\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{164f9264-0c22-4091-a076-ec7ab4d18589}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{90a05457-4198-431f-9605-dfcdfc11f49c}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PageLayouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fddd3e2f-ba39-49dd-afd6-41dc747d9fda}</SharePointProjectItemId>
+    </None>
+    <None Include="Source Material\circles-master\.gitignore" />
+    <None Include="Source Material\circles-master\bower.json" />
+    <None Include="Source Material\circles-master\circles.min.js.map">
+      <DependentUpon>circles.min.js</DependentUpon>
+    </None>
+    <None Include="Source Material\circles-master\MIT-LICENSE" />
+    <None Include="Source Material\circles-master\package.json" />
+    <None Include="Source Material\circles-master\README.md" />
+    <None Include="Source Material\Icons\IcoMoon\fonts\NexusIcons.eot" />
+    <None Include="Source Material\Icons\IcoMoon\fonts\NexusIcons.ttf" />
+    <None Include="Source Material\Icons\IcoMoon\fonts\NexusIcons.woff" />
+    <None Include="Source Material\Icons\IcoMoon\selection.json" />
+    <None Include="Widget Framework\MAN Nexus Branding Documentation.docx" />
+    <None Include="Source Material\oslo.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="JS\fileUpload\cors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\edit-user-example.html" />
+    <Content Include="Admin\dashboard-example.html" />
+    <Content Include="Admin\admin.css">
+      <DependentUpon>admin.less</DependentUpon>
+    </Content>
+    <Content Include="Admin\admin.html" />
+    <Content Include="Admin\admin.min.css">
+      <DependentUpon>admin.css</DependentUpon>
+    </Content>
+    <Content Include="Admin\admin.js" />
+    <Content Include="Admin\kendo-ui.min.css">
+      <DependentUpon>kendo-ui.css</DependentUpon>
+    </Content>
+    <Content Include="Admin\Nexus\nexus.css">
+      <DependentUpon>nexus.less</DependentUpon>
+    </Content>
+    <Content Include="Admin\Nexus\nexus.js">
+      <DependentUpon>nexus.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Admin\Nexus\nexus.min.css">
+      <DependentUpon>nexus.css</DependentUpon>
+    </Content>
+    <Content Include="Admin\Nexus\nexus.min.js">
+      <DependentUpon>nexus.js</DependentUpon>
+    </Content>
+    <Content Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Bold.svg" />
+    <Content Include="Admin\Nexus\NexusFonts\MANEuropeCondensed-Regular.svg" />
+    <Content Include="Admin\Nexus\NexusFonts\NexusIcons.svg" />
+    <Content Include="Admin\Nexus\NexusImages\favicon.ico" />
+    <Content Include="Admin\Nexus\NexusImages\helpcenter-illustration.png" />
+    <Content Include="Admin\Nexus\NexusImages\helpcenter.jpg" />
+    <Content Include="Admin\Nexus\NexusImages\sample-icon-16.png" />
+    <Content Include="Admin\Nexus\NexusImages\sample-image-high.jpg" />
+    <Content Include="Admin\Nexus\NexusImages\sample-image-wide.jpg" />
+    <Content Include="Admin\Nexus\NexusImages\sample-profile-250.jpg" />
+    <Content Include="Admin\Nexus\NexusImages\sample-profile-48.jpg" />
+    <Content Include="Admin\Nexus\NexusJqUInPqSelect.css">
+      <DependentUpon>NexusJqUInPqSelect.css.bundle</DependentUpon>
+    </Content>
+    <Content Include="Admin\Nexus\NexusJqUInPqSelect.min.css">
+      <DependentUpon>NexusJqUInPqSelect.css</DependentUpon>
+    </Content>
+    <Content Include="Admin\readme.txt" />
+    <Content Include="C:\Users\admincmah\Desktop\bundle.js">
+      <Link>bundle.js</Link>
+    </Content>
+    <Content Include="C:\Users\admincmah\Desktop\bundle.min.js">
+      <Link>bundle.min.js</Link>
+      <DependentUpon>bundle.js</DependentUpon>
+    </Content>
+    <Content Include="CONTROLTEMPLATES\WelcomeNexus.ascx" />
+    <Content Include="JS\circles.js" />
+    <Content Include="JS\DirectContact.js" />
+    <Content Include="JS\fileUpload\jquery.fileupload-image.js" />
+    <Content Include="JS\fileUpload\jquery.fileupload-process.js" />
+    <Content Include="JS\fileUpload\jquery.fileupload-validate.js" />
+    <Content Include="JS\fileUpload\jquery.fileupload.js" />
+    <Content Include="JS\fileUpload\jquery.iframe-transport.js" />
+    <Content Include="JS\fileUpload\jquery.ui.widget.js" />
+    <Content Include="JS\linq.js" />
+    <Content Include="JS\logger.js" />
+    <Content Include="JS\appload.js" />
+    <Content Include="JS\nexus.bundle.js" />
+    <Content Include="JS\nexus.bundle.min.js">
+      <DependentUpon>nexus.bundle.js</DependentUpon>
+    </Content>
+    <Content Include="JS\projectSnapshotController.js" />
+    <Content Include="JS\sslide.js" />
+    <Content Include="Layouts\Nexus\fileUploadTemplate\result.html" />
+    <Content Include="JS\jquery.Jcrop.min.js" />
+    <Content Include="JS\ServiceHandler.js" />
+    <Content Include="JS\jquery-1.11.2-ui.min.js" />
+    <Content Include="JS\jquery.slideme2.js" />
+    <Content Include="JS\pqselect.min.js" />
+    <Content Include="JS\surveyController.js" />
+    <Content Include="JS\webservices.js" />
+    <Content Include="Layouts\Nexus\NexusImages\16_upload.png" />
+    <Content Include="Layouts\Nexus\NexusImages\24_upload.png" />
+    <Content Include="Layouts\Nexus\NexusImages\EngineViewer\cleanfunnelconfigurator.jpg" />
+    <Content Include="Layouts\Nexus\NexusImages\EngineViewer\p_trans.gif" />
+    <Content Include="Layouts\Nexus\NexusImages\EngineViewer\skema.gif" />
+    <Content Include="Layouts\Nexus\NexusImages\Folder-icon.png" />
+    <Content Include="Layouts\Nexus\NexusImages\loading.gif" />
+    <Content Include="Layouts\Nexus\NexusImages\pagelayouts.png" />
+    <Content Include="Layouts\Nexus\NexusImages\upload-failure.png" />
+    <Content Include="Layouts\Nexus\NexusImages\upload-success.png" />
+    <Content Include="Layouts\Nexus\NexusImages\uploadfile.gif" />
+    <Content Include="Layouts\Nexus\NexusJavaScript\angular.min.js" />
+    <Content Include="Layouts\Nexus\NexusJavaScript\LOD\LOD-App.js" />
+    <Content Include="Layouts\Nexus\NexusJavaScript\LOD\LOD-ServiceHandler.js" />
+    <Content Include="Layouts\Nexus\NexusJavaScript\SupplierComponentDrawing-app.js" />
+    <Content Include="Layouts\Nexus\NexusJavaScript\SupplierComponentDrawing-fileservice.js" />
+    <Content Include="Layouts\Nexus\NexusJqUInPqSelect.css">
+      <DependentUpon>NexusJqUInPqSelect.css.bundle</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Nexus\NexusJqUInPqSelect.min.css">
+      <DependentUpon>NexusJqUInPqSelect.css</DependentUpon>
+    </Content>
+    <Content Include="Less\JCrop\jquery.Jcrop.min.css" />
+    <Content Include="Less\PqSelect\images\ui-icons_444444_256x240.png" />
+    <Content Include="Less\PqSelect\images\ui-icons_555555_256x240.png" />
+    <Content Include="Less\PqSelect\images\ui-icons_777620_256x240.png" />
+    <Content Include="Less\PqSelect\images\ui-icons_777777_256x240.png" />
+    <Content Include="Less\PqSelect\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Less\PqSelect\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Less\PqSelect\jquery-1.11.2-ui.min.css" />
+    <Content Include="Layouts\Nexus\nexus.css">
+      <DependentUpon>nexus.less</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Nexus\nexus.js">
+      <DependentUpon>nexus.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Nexus\nexus.min.css">
+      <DependentUpon>nexus.css</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Nexus\nexus.min.js">
+      <DependentUpon>nexus.js</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Nexus\NexusImages\helpcenter.jpg" />
+    <Content Include="Less\PqSelect\NexusJqUInPqSelect.css" />
+    <Content Include="Less\PqSelect\NexusJqUInPqSelect.min.css" />
+    <Content Include="Less\PqSelect\pqselect.min.css" />
+    <Content Include="Less\jquery-ui.css">
+      <DependentUpon>jquery-ui.less</DependentUpon>
+    </Content>
+    <Content Include="Less\jquery-ui.min.css">
+      <DependentUpon>jquery-ui.css</DependentUpon>
+    </Content>
+    <Content Include="PageLayouts\Nexus2Col-5-7-NavBox.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-7-5-NavBox.aspx" />
+    <Content Include="PageLayouts\NexusBlank.aspx" />
+    <Content Include="PageLayouts\NexusBlankWhite.aspx" />
+    <Content Include="PageLayouts\NexusEmpty.aspx" />
+    <Content Include="PageLayouts\NexusNewsLayout.aspx" />
+    <Content Include="Source Material\Design illustrations\colors.png" />
+    <Content Include="Source Material\Design illustrations\nexus_adminmode-dashboard.png" />
+    <Content Include="Source Material\Design illustrations\nexus_adminmode-edit-user.png" />
+    <Content Include="Source Material\Design illustrations\nexus_adminmode-filtering.png" />
+    <Content Include="Source Material\Design illustrations\nexus_appstore.png" />
+    <Content Include="Source Material\Design illustrations\nexus_engineerscorner.png" />
+    <Content Include="Source Material\Design illustrations\nexus_engineerscorner_thread.png" />
+    <Content Include="Source Material\Design illustrations\nexus_myprofile.png" />
+    <Content Include="Source Material\Design illustrations\nexus_newsarticle.png" />
+    <Content Include="Source Material\Design illustrations\nexus_projectsite.png" />
+    <Content Include="Source Material\Design illustrations\nexus_searchresult.png" />
+    <Content Include="Source Material\Design illustrations\nexus_serviceletters.png" />
+    <Content Include="Source Material\Design illustrations\nexus_startpage.png" />
+    <Content Include="Source Material\Icons\IcoMoon\demo-files\demo.css" />
+    <Content Include="Source Material\Icons\IcoMoon\demo-files\demo.js" />
+    <Content Include="Source Material\Icons\IcoMoon\demo.html" />
+    <Content Include="Source Material\Icons\IcoMoon\fonts\NexusIcons.svg" />
+    <Content Include="Source Material\Icons\IcoMoon\Read Me.txt" />
+    <Content Include="Source Material\Icons\IcoMoon\style.css" />
+    <Content Include="Source Material\Icons\SVG\archive-in.svg" />
+    <Content Include="Source Material\Icons\SVG\archive-out.svg" />
+    <Content Include="Source Material\Icons\SVG\disable-decline.svg" />
+    <Content Include="Source Material\Icons\SVG\enable-approve.svg" />
+    <Content Include="Source Material\Icons\SVG\message-mark-as-read.svg" />
+    <Content Include="Source Material\Icons\SVG\message-mark-as-unread.svg" />
+    <Content Include="Source Material\Icons\SVG\message-reply.svg" />
+    <Content Include="Source Material\Images\helpcenter.png" />
+    <Content Include="Layouts\Nexus\NexusImages\helpcenter-illustration.png" />
+    <Content Include="Less\Bootstrap-master\dist\css\bootstrap-theme.css" />
+    <Content Include="Less\Bootstrap-master\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Less\Bootstrap-master\dist\css\bootstrap.css" />
+    <Content Include="Less\Bootstrap-master\dist\css\bootstrap.min.css" />
+    <Content Include="Less\Bootstrap-master\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Less\Bootstrap-master\dist\js\bootstrap.js" />
+    <Content Include="Less\Bootstrap-master\dist\js\bootstrap.min.js" />
+    <Content Include="Less\Bootstrap-master\dist\js\npm.js" />
+    <Content Include="Less\Bootstrap-master\docs\about.html" />
+    <Content Include="Less\Bootstrap-master\docs\apple-touch-icon.png" />
+    <Content Include="Less\Bootstrap-master\docs\assets\brand\bootstrap-outline.svg" />
+    <Content Include="Less\Bootstrap-master\docs\assets\brand\bootstrap-punchout.svg" />
+    <Content Include="Less\Bootstrap-master\docs\assets\brand\bootstrap-solid.svg" />
+    <Content Include="Less\Bootstrap-master\docs\assets\css\docs.min.css" />
+    <Content Include="Less\Bootstrap-master\docs\assets\css\src\anchor.css" />
+    <Content Include="Less\Bootstrap-master\docs\assets\css\src\docs.css" />
+    <Content Include="Less\Bootstrap-master\docs\assets\css\src\pygments-manni.css" />
+    <Content Include="Less\Bootstrap-master\docs\assets\flash\ZeroClipboard.swf" />
+    <Content Include="Less\Bootstrap-master\docs\assets\img\components.png" />
+    <Content Include="Less\Bootstrap-master\docs\assets\img\devices.png" />
+    <Content Include="Less\Bootstrap-master\docs\assets\img\sass-less.png" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\customize.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\docs.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\ie-emulation-modes-warning.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\ie8-responsive-file-warning.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\raw-files.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\src\application.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\src\customizer.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\anchor.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\autoprefixer.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\Blob.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\FileSaver.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\holder.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\jszip.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\less.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\uglify.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\assets\js\vendor\ZeroClipboard.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\browser-bugs.html" />
+    <Content Include="Less\Bootstrap-master\docs\components.html" />
+    <Content Include="Less\Bootstrap-master\docs\css.html" />
+    <Content Include="Less\Bootstrap-master\docs\customize.html" />
+    <Content Include="Less\Bootstrap-master\docs\dist\css\bootstrap-theme.css" />
+    <Content Include="Less\Bootstrap-master\docs\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Less\Bootstrap-master\docs\dist\css\bootstrap.css" />
+    <Content Include="Less\Bootstrap-master\docs\dist\css\bootstrap.min.css" />
+    <Content Include="Less\Bootstrap-master\docs\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Less\Bootstrap-master\docs\dist\js\bootstrap.js" />
+    <Content Include="Less\Bootstrap-master\docs\dist\js\bootstrap.min.js" />
+    <Content Include="Less\Bootstrap-master\docs\dist\js\npm.js" />
+    <Content Include="Less\Bootstrap-master\docs\examples\blog\blog.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\blog\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\carousel\carousel.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\carousel\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\cover\cover.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\cover\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\dashboard\dashboard.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\dashboard\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\grid\grid.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\grid\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\jumbotron-narrow\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\jumbotron-narrow\jumbotron-narrow.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\jumbotron\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\jumbotron\jumbotron.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\justified-nav\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\justified-nav\justified-nav.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\navbar-fixed-top\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\navbar-fixed-top\navbar-fixed-top.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\navbar-static-top\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\navbar-static-top\navbar-static-top.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\navbar\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\navbar\navbar.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\non-responsive\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\non-responsive\non-responsive.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\offcanvas\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\offcanvas\offcanvas.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\offcanvas\offcanvas.js" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\blog.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\carousel.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\cover.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\dashboard.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\equal-height-columns.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\grid.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\jumbotron-narrow.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\jumbotron.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\justified-nav.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\navbar-fixed.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\navbar-static.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\navbar.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\non-responsive.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\offcanvas.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\sign-in.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\starter-template.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\sticky-footer-navbar.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\sticky-footer.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\screenshots\theme.jpg" />
+    <Content Include="Less\Bootstrap-master\docs\examples\signin\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\signin\signin.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\starter-template\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\starter-template\starter-template.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\sticky-footer-navbar\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\sticky-footer-navbar\sticky-footer-navbar.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\sticky-footer\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\sticky-footer\sticky-footer.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\theme\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\theme\theme.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\tooltip-viewport\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\examples\tooltip-viewport\tooltip-viewport.css" />
+    <Content Include="Less\Bootstrap-master\docs\examples\tooltip-viewport\tooltip-viewport.js" />
+    <Content Include="Less\Bootstrap-master\docs\favicon.ico" />
+    <Content Include="Less\Bootstrap-master\docs\getting-started.html" />
+    <Content Include="Less\Bootstrap-master\docs\index.html" />
+    <Content Include="Less\Bootstrap-master\docs\javascript.html" />
+    <Content Include="Less\Bootstrap-master\docs\migration.html" />
+    <Content Include="Less\Bootstrap-master\docs\robots.txt" />
+    <Content Include="Less\Bootstrap-master\docs\sitemap.xml" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\ads.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\alerts.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\badges.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\breadcrumbs.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\button-dropdowns.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\button-groups.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\dropdowns.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\glyphicons.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\input-groups.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\jumbotron.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\labels.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\list-group.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\media.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\navbar.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\navs.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\page-header.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\pagination.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\panels.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\progress-bars.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\responsive-embed.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\thumbnails.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\components\wells.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\buttons.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\code.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\forms.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\grid.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\helpers.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\images.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\less.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\overview.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\responsive-utilities.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\sass.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\tables.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\css\type.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\customizer-variables.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\footer.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\accessibility.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\browser-device-support.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\community.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\disabling-responsiveness.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\download.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\examples.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\grunt.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\license.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\template.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\third-party-support.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\tools.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\translations.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\getting-started\whats-included.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\header.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\affix.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\alerts.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\buttons.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\carousel.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\collapse.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\dropdowns.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\modal.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\overview.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\popovers.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\scrollspy.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\tabs.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\tooltips.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\js\transitions.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\about.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\components.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\css.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\customize.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\getting-started.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\javascript.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\main.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\nav\migration.html" />
+    <Content Include="Less\Bootstrap-master\docs\_includes\social-buttons.html" />
+    <Content Include="Less\Bootstrap-master\docs\_layouts\default.html" />
+    <Content Include="Less\Bootstrap-master\docs\_layouts\home.html" />
+    <Content Include="Less\Bootstrap-master\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Less\Bootstrap-master\Gruntfile.js" />
+    <Content Include="Less\Bootstrap-master\grunt\bs-commonjs-generator.js" />
+    <Content Include="Less\Bootstrap-master\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Less\Bootstrap-master\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Less\Bootstrap-master\grunt\bs-raw-files-generator.js" />
+    <Content Include="Less\Bootstrap-master\js\affix.js" />
+    <Content Include="Less\Bootstrap-master\js\alert.js" />
+    <Content Include="Less\Bootstrap-master\js\button.js" />
+    <Content Include="Less\Bootstrap-master\js\carousel.js" />
+    <Content Include="Less\Bootstrap-master\js\collapse.js" />
+    <Content Include="Less\Bootstrap-master\js\dropdown.js" />
+    <Content Include="Less\Bootstrap-master\js\modal.js" />
+    <Content Include="Less\Bootstrap-master\js\popover.js" />
+    <Content Include="Less\Bootstrap-master\js\scrollspy.js" />
+    <Content Include="Less\Bootstrap-master\js\tab.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\index.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\affix.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\alert.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\button.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\carousel.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\collapse.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\dropdown.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\modal.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\phantom.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\popover.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\scrollspy.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\tab.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\unit\tooltip.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\vendor\jquery.min.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\vendor\qunit.css" />
+    <Content Include="Less\Bootstrap-master\js\tests\vendor\qunit.js" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\affix.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\alert.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\button.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\carousel.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\collapse.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\dropdown.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\modal.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\popover.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\scrollspy.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\tab.html" />
+    <Content Include="Less\Bootstrap-master\js\tests\visual\tooltip.html" />
+    <Content Include="Less\Bootstrap-master\js\tooltip.js" />
+    <Content Include="Less\Bootstrap-master\js\transition.js" />
+    <Content Include="Less\Bootstrap-master\package.js" />
+    <Content Include="Less\Bootstrap-master\test-infra\requirements.txt" />
+    <Content Include="Features\DT.GIIW.Nexus.Branding.MasterPage\DT.GIIW.Nexus.Branding.MasterPage.Template.xml">
+      <DependentUpon>DT.GIIW.Nexus.Branding.MasterPage.feature</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Less\bootstrap-nexus-variables.css">
+      <DependentUpon>bootstrap-nexus-variables.less</DependentUpon>
+    </Content>
+    <Content Include="Less\bootstrap-nexus-variables.min.css">
+      <DependentUpon>bootstrap-nexus-variables.css</DependentUpon>
+    </Content>
+    <Content Include="Less\bootstrap-nexus.css">
+      <DependentUpon>bootstrap-nexus.less</DependentUpon>
+    </Content>
+    <Content Include="Less\bootstrap-nexus.min.css">
+      <DependentUpon>bootstrap-nexus.css</DependentUpon>
+    </Content>
+    <Content Include="Less\infobar.css">
+      <DependentUpon>infobar.less</DependentUpon>
+    </Content>
+    <Content Include="Less\infobar.min.css">
+      <DependentUpon>infobar.css</DependentUpon>
+    </Content>
+    <Content Include="Less\icons.css">
+      <DependentUpon>icons.less</DependentUpon>
+    </Content>
+    <Content Include="Less\icons.min.css">
+      <DependentUpon>icons.css</DependentUpon>
+    </Content>
+    <Content Include="JS\jquery-1.11.2.min.js" />
+    <Content Include="JS\nexus.js" />
+    <Content Include="Layouts\Nexus\NexusFonts\NexusIcons.svg" />
+    <Content Include="Less\sharepoint.css">
+      <DependentUpon>sharepoint.less</DependentUpon>
+    </Content>
+    <Content Include="Less\sharepoint.min.css">
+      <DependentUpon>sharepoint.css</DependentUpon>
+    </Content>
+    <Content Include="Less\fonts.css">
+      <DependentUpon>fonts.less</DependentUpon>
+    </Content>
+    <Content Include="Less\fonts.min.css">
+      <DependentUpon>fonts.css</DependentUpon>
+    </Content>
+    <Content Include="Less\forms.css">
+      <DependentUpon>forms.less</DependentUpon>
+    </Content>
+    <Content Include="Less\forms.min.css">
+      <DependentUpon>forms.css</DependentUpon>
+    </Content>
+    <Content Include="Less\toolbar.css">
+      <DependentUpon>toolbar.less</DependentUpon>
+    </Content>
+    <Content Include="Less\toolbar.min.css">
+      <DependentUpon>toolbar.css</DependentUpon>
+    </Content>
+    <Content Include="Less\utility.css">
+      <DependentUpon>utility.less</DependentUpon>
+    </Content>
+    <Content Include="Less\utility.min.css">
+      <DependentUpon>utility.css</DependentUpon>
+    </Content>
+    <Content Include="PageLayouts\NexusHelpCenterStart.aspx" />
+    <Content Include="PageLayouts\NexusHelpCenterLibrary.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-1-3-NavBox.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-1-4.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-1-4-NavBox.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-3-1-NavBox.aspx" />
+    <Content Include="PageLayouts\NexusSearchResults.aspx" />
+    <Content Include="Source Material\circles-master\circles.js" />
+    <Content Include="Source Material\circles-master\circles.min.js" />
+    <Content Include="Source Material\circles-master\Gruntfile.js" />
+    <Content Include="Source Material\circles-master\spec\circlesSpec.js" />
+    <Content Include="Source Material\circles-master\spec\index.html" />
+    <Content Include="Source Material\circles-master\spec\karma.conf.js" />
+    <Content Include="Source Material\circles-master\spec\responsive.html" />
+    <Content Include="Source Material\circles-master\spec\viewport.html" />
+    <Content Include="Source Material\Icons\SVG\back.svg" />
+    <Content Include="Source Material\Icons\SVG\faq.svg" />
+    <Content Include="Source Material\Icons\SVG\video.svg" />
+    <Content Include="Source Material\Icons\SVG\info.svg" />
+    <Content Include="Source Material\Icons\SVG\projects.svg" />
+    <Content Include="Source Material\Icons\SVG\tools.svg" />
+    <Content Include="Source Material\Icons\SVG\save.svg" />
+    <Content Include="Source Material\Icons\SVG\notification.svg" />
+    <Content Include="Source Material\Icons\SVG\add.svg" />
+    <Content Include="Source Material\Icons\SVG\calendar.svg" />
+    <Content Include="Source Material\Icons\SVG\menu-open.svg" />
+    <Content Include="Source Material\Icons\SVG\help.svg" />
+    <Content Include="Source Material\Icons\SVG\appstore.svg" />
+    <Content Include="Source Material\Icons\SVG\ellipsis.svg" />
+    <Content Include="Source Material\Icons\SVG\clock.svg" />
+    <Content Include="Source Material\Icons\SVG\menu.svg" />
+    <Content Include="Source Material\Icons\SVG\round-down.svg" />
+    <Content Include="Source Material\Icons\SVG\round-up.svg" />
+    <Content Include="Source Material\Icons\SVG\arrow-left.svg" />
+    <Content Include="Source Material\Icons\SVG\arrow-right.svg" />
+    <Content Include="Source Material\Icons\SVG\chart.svg" />
+    <Content Include="Source Material\Icons\SVG\boat.svg" />
+    <Content Include="Source Material\Icons\SVG\chat.svg" />
+    <Content Include="Source Material\Icons\SVG\check.svg" />
+    <Content Include="Source Material\Icons\SVG\document.svg" />
+    <Content Include="Source Material\Icons\SVG\dropdown-arrow.svg" />
+    <Content Include="Source Material\Icons\SVG\download.svg" />
+    <Content Include="Source Material\Icons\SVG\download2.svg" />
+    <Content Include="Source Material\Icons\SVG\flash.svg" />
+    <Content Include="Source Material\Icons\SVG\home.svg" />
+    <Content Include="Source Material\Icons\Icons Help.txt" />
+    <Content Include="Source Material\Icons\SVG\gears.svg" />
+    <Content Include="Source Material\Icons\SVG\lab.svg" />
+    <Content Include="Source Material\Icons\SVG\like.svg" />
+    <Content Include="Source Material\Icons\SVG\message.svg" />
+    <Content Include="Source Material\Icons\SVG\new.svg" />
+    <Content Include="Source Material\Icons\SVG\newspaper.svg" />
+    <Content Include="Source Material\Icons\SVG\out.svg" />
+    <Content Include="Source Material\Icons\SVG\phone.svg" />
+    <Content Include="Source Material\Icons\SVG\printer.svg" />
+    <Content Include="Source Material\Icons\SVG\search.svg" />
+    <Content Include="Source Material\Icons\SVG\settings.svg" />
+    <Content Include="Source Material\Icons\SVG\trash.svg" />
+    <Content Include="Layouts\Nexus\NexusImages\sample-profile-250.jpg" />
+    <Content Include="Layouts\Nexus\NexusImages\sample-profile-48.jpg" />
+    <Content Include="Layouts\Nexus\NexusImages\favicon.ico" />
+    <Content Include="Layouts\Nexus\NexusImages\sample-icon-16.png" />
+    <Content Include="Layouts\Nexus\NexusImages\sample-image-high.jpg" />
+    <Content Include="Layouts\Nexus\NexusImages\sample-image-wide.jpg" />
+    <Content Include="Less\style.css">
+      <DependentUpon>style.less</DependentUpon>
+    </Content>
+    <Content Include="Less\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Bold.svg" />
+    <Content Include="Layouts\Nexus\NexusFonts\MANEuropeCondensed-Regular.svg" />
+    <Content Include="Less\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Less\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+    <Content Include="Less\widgets.css">
+      <DependentUpon>widgets.less</DependentUpon>
+    </Content>
+    <Content Include="Less\widgets.min.css">
+      <DependentUpon>widgets.css</DependentUpon>
+    </Content>
+    <Content Include="MasterPage\Elements.xml" />
+    <Content Include="PageLayouts\Elements.xml" />
+    <Content Include="PageLayouts\Nexus2Col-3-1.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-5-7.aspx" />
+    <Content Include="PageLayouts\NexusAppStore.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-7-5.aspx" />
+    <Content Include="PageLayouts\Nexus2Col-1-3.aspx" />
+    <Content Include="PageLayouts\NexusStart.aspx" />
+    <Content Include="Source Material\Deploy.txt" />
+    <Content Include="Source Material\Images\NexusToolbarLogo.svg" />
+    <Content Include="Widget Framework\Components.html" />
+    <Content Include="Widget Framework\Typography.html" />
+    <Content Include="Source Material\Images\man.svg" />
+    <Content Include="Source Material\Images\nexus.svg" />
+    <Content Include="Source Material\oslo.css" />
+    <Content Include="Widget Framework\Nexus Widgets.html" />
+    <Content Include="Widget Framework\Widget Structure.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>
